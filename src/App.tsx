@@ -105,8 +105,11 @@ const MinuteAllocation = () => {
 
 function App() {
   return (
-    <div className="container">
-      <div className="border-8 border-black rounded-[50%] h-80 w-80 shadow-2xl">
+    <div data-tauri-drag-region className="container">
+      <div
+        data-tauri-drag-region
+        className="bg-white border-8 border-gray-700 rounded-[50%] h-80 w-80 shadow-2xl"
+      >
         <div className="w-full h-full relative">
           <MinuteAllocation />
           <div className="w-[90%] h-[90%] bg-white rounded-[50%] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">

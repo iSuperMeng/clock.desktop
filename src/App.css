@@ -4,6 +4,6 @@
 
 @layer components {
   .container {
-    @apply flex justify-center items-center flex-col h-screen w-screen;
+    @apply border-black flex justify-start items-center flex-col h-screen w-screen;
   }
 }
