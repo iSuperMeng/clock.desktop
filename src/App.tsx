@@ -8,8 +8,12 @@ enum TimeKind {
 
 const TimePointer: React.FC<{ kind: TimeKind }> = ({ kind }) => {
   const height = kind == TimeKind.Hour ? "h-36" : "h-44";
-  const width = kind == TimeKind.Second ? "w-1" : "w-2";
   const bg = kind == TimeKind.Second ? "bg-red-800" : "bg-black";
+  let width = kind == TimeKind.Second ? "w-1" : "w-2";
+
+  if (kind == TimeKind.Minute) {
+    width = "w-[0.35rem]";
+  }
 
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
