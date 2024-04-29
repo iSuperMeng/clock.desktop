@@ -11,38 +11,38 @@ const TimePointer: React.FC<{ kind: TimeKind }> = ({ kind }) => {
   const width = kind == TimeKind.Second ? "w-1" : "w-2";
   const bg = kind == TimeKind.Second ? "bg-red-800" : "bg-black";
 
-  const [hour, setHour] = useState(0);
-  const [minute, setMinute] = useState(0);
-  const [second, setSecond] = useState(0);
+  const [hours, setHours] = useState(0);
+  const [minutes, setMinutes] = useState(0);
+  const [seconds, setSeconds] = useState(0);
   const [rotate, setRotate] = useState(0);
 
   useEffect(() => {
     setInterval(() => {
-      const locateTime = new Date()
+      const localeTime = new Date()
         .toLocaleTimeString()
         .split(":")
         .map((i) => parseInt(i));
-      setHour(locateTime[0]);
-      setMinute(locateTime[1]);
-      setSecond(locateTime[2]);
+      setHours(localeTime[0]);
+      setMinutes(localeTime[1]);
+      setSeconds(localeTime[2]);
     }, 1000);
   }, []);
 
   useEffect(() => {
     switch (kind) {
       case TimeKind.Hour:
-        setRotate(hour * 30);
+        setRotate(hours * 30);
         break;
       case TimeKind.Minute:
-        setRotate(minute * 6);
+        setRotate(minutes * 6);
         break;
       case TimeKind.Second:
-        setRotate(second * 6);
+        setRotate(seconds * 6);
         break;
       default:
         break;
     }
-  }, [kind, hour, minute, second]);
+  }, [kind, hours, minutes, seconds]);
 
   return (
     <div
