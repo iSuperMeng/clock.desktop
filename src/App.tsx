@@ -9,11 +9,12 @@ enum TimeKind {
 const TimePointer: React.FC<{ kind: TimeKind }> = ({ kind }) => {
   const height = kind == TimeKind.Hour ? "h-36" : "h-44";
   const bg = kind == TimeKind.Second ? "bg-red-800" : "bg-black";
-  let width = kind == TimeKind.Second ? "w-1" : "w-2";
-
-  if (kind == TimeKind.Minute) {
-    width = "w-[0.35rem]";
-  }
+  const width =
+    kind == TimeKind.Second
+      ? "w-1"
+      : kind == TimeKind.Minute
+      ? "w-[0.35rem]"
+      : "w-2";
 
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
@@ -29,6 +30,8 @@ const TimePointer: React.FC<{ kind: TimeKind }> = ({ kind }) => {
       setHours(localeTime[0]);
       setMinutes(localeTime[1]);
       setSeconds(localeTime[2]);
+      //TODO play voice
+      //https://s1.aigei.com/src/aud/mp3/84/8411ebdff1ab488faf63c2f47f75c612.mp3?e=1714444140&token=P7S2Xpzfz11vAkASLTkfHN7Fw-oOZBecqeJaxypL:vHUDYhBhFb3uUnv_1k5tkDCTSvo=
     }, 1000);
   }, []);
 
