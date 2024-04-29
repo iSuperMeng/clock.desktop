@@ -105,25 +105,23 @@ const MinuteAllocation = () => {
 
 function App() {
   return (
-    <div data-tauri-drag-region className="container">
-      <div
-        data-tauri-drag-region
-        className="bg-white border-8 border-gray-700 rounded-[50%] h-80 w-80 shadow-2xl"
-      >
-        <div className="w-full h-full relative">
-          <MinuteAllocation />
-          <div className="w-[90%] h-[90%] bg-white rounded-[50%] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
-            <div className="w-full h-full relative rounded-[50%]">
-              <HourAllocation />
-            </div>
+    <div
+      data-tauri-drag-region
+      className="bg-white border-8 border-gray-700 rounded-[50%] h-80 w-80"
+    >
+      <div data-tauri-drag-region className="w-full h-full relative">
+        <MinuteAllocation />
+        <div className="w-[90%] h-[90%] bg-white rounded-[50%] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+          <div className="w-full h-full relative rounded-[50%]">
+            <HourAllocation />
           </div>
-          <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-4 h-4 bg-black rounded-[50%]">
-            <div className="relative w-full h-full">
-              <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-3 h-3 bg-red-800 rounded-[50%] z-50"></div>
-              <TimePointer kind={TimeKind.Hour} />
-              <TimePointer kind={TimeKind.Minute} />
-              <TimePointer kind={TimeKind.Second} />
-            </div>
+        </div>
+        <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-4 h-4 bg-black rounded-[50%]">
+          <div className="relative w-full h-full">
+            <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-3 h-3 bg-red-800 rounded-[50%] z-50"></div>
+            <TimePointer kind={TimeKind.Hour} />
+            <TimePointer kind={TimeKind.Minute} />
+            <TimePointer kind={TimeKind.Second} />
           </div>
         </div>
       </div>
