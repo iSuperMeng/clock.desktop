@@ -6,8 +6,8 @@
 		"distDir": "../dist"
 	},
 	"package": {
-		"productName": "tauri-app",
-		"version": "0.0.0"
+		"productName": "clock.desktop",
+		"version": "0.1.0"
 	},
 	"tauri": {
 		"allowlist": {
@@ -22,7 +22,7 @@
 		},
 		"windows": [
 			{
-				"title": "tauri-app",
+				"title": "clock.desktop",
 				"width": 350,
 				"height": 350,
 				"x": 1150,
