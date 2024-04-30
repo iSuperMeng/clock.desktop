@@ -13,7 +13,9 @@
 		"allowlist": {
 			"all": false,
 			"window": {
-				"startDragging": true
+				"startDragging": true,
+				"minimize": true,
+				"close": true
 			},
 			"shell": {
 				"all": false,
@@ -23,10 +25,11 @@
 		"windows": [
 			{
 				"title": "clock.desktop",
-				"width": 350,
-				"height": 350,
+				"width": 340,
+				"height": 370,
 				"x": 1150,
 				"y": 0,
+				"resizable": false,
 				"transparent": true,
 				"decorations": false,
 				"alwaysOnTop": true
