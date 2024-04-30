@@ -1,6 +1,5 @@
 import { appWindow } from "@tauri-apps/api/window";
 import { useEffect, useState } from "react";
-import { useSecondsVoice } from "./hooks/voice";
 import { IoSettingsSharp } from "react-icons/io5";
 import {
   FaRegWindowClose,
@@ -145,17 +144,6 @@ const MinuteAllocation = () => {
 
 function App() {
   const [showToolbar, setShowToolbar] = useState(false);
-  const [shouldPlayVoice, setShouldPlayVoice] = useState(true);
-  const { play, stop } = useSecondsVoice();
-
-  useEffect(() => {
-    if (!shouldPlayVoice) {
-      stop();
-      return;
-    }
-    play();
-    setShouldPlayVoice(false);
-  }, [shouldPlayVoice]);
 
   return (
     <div
