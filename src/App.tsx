@@ -15,7 +15,7 @@ enum TimeKind {
 
 const TimePointer: React.FC<{ kind: TimeKind }> = ({ kind }) => {
   const height = kind == TimeKind.Hour ? "h-36" : "h-44";
-  const bg = kind == TimeKind.Second ? "bg-red-800" : "bg-black";
+  const bg = kind == TimeKind.Second ? "bg-red-800" : "bg-black dark:bg-white";
   const width =
     kind == TimeKind.Second
       ? "w-1"
@@ -61,7 +61,7 @@ const TimePointer: React.FC<{ kind: TimeKind }> = ({ kind }) => {
       className={`absolute ${height} ${width} ${bg} left-[50%] top-[50%] rounded-t-[40%] flex items-end`}
       style={{ transform: `translate(-50%,-50%) rotate(${rotate}deg)` }}
     >
-      <div className="h-[30%] w-full bg-gray-200"></div>
+      <div className="h-[30%] w-full bg-gray-200 dark:bg-gray-700"></div>
     </div>
   );
 };
@@ -109,6 +109,7 @@ const HourAllocation = () => {
             }}
           >
             <p
+              className="dark:text-white"
               style={{
                 transform: `rotate(-${rotate}deg)`,
               }}
@@ -127,12 +128,14 @@ const MinuteAllocation = () => {
   return (
     <>
       {minutes.map((i) => {
+        const bg = `${
+          i % 5 == 0 ? "bg-black dark:bg-gray-400" : "bg-gray-700"
+        }`;
         return (
           <div
             key={i}
-            className="absolute h-full w-[2px] top-[50%] left-[50%]"
+            className={`absolute h-full w-[2px] top-[50%] left-[50%] ${bg}`}
             style={{
-              background: `${i % 5 == 0 ? "black" : "gray"}`,
               transform: `translate(-50%, -50%) rotate(${i * 6}deg)`,
             }}
           ></div>
@@ -143,22 +146,23 @@ const MinuteAllocation = () => {
 };
 
 function App() {
+  const darkMode = true;
   const [showToolbar, setShowToolbar] = useState(false);
 
   return (
     <div
       data-tauri-drag-region
       className={`h-screen w-screen flex justify-center items-start ${
-        showToolbar ? "bg-gray-300" : ""
-      } `}
+        darkMode ? "dark" : ""
+      } ${showToolbar ? "bg-gray-300" : ""} `}
       onMouseEnter={() => setShowToolbar(true)}
       onMouseLeave={() => setShowToolbar(false)}
     >
       <Toolbars enable={showToolbar} />
-      <div className="bg-white border-8 border-gray-700 rounded-[50%] h-80 w-80">
+      <div className="bg-white dark:bg-gray-900 border-8 border-gray-700 dark:border-gray-900 rounded-[50%] h-80 w-80">
         <div className="w-full h-full relative">
           <MinuteAllocation />
-          <div className="w-[90%] h-[90%] bg-white rounded-[50%] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+          <div className="w-[90%] h-[90%] bg-white dark:bg-gray-900 rounded-[50%] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
             <div className="w-full h-full relative rounded-[50%]">
               <HourAllocation />
             </div>
