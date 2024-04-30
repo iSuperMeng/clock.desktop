@@ -1,8 +1,12 @@
 import { appWindow } from "@tauri-apps/api/window";
 import { useEffect, useState } from "react";
-import { FaRegWindowClose } from "react-icons/fa";
-import { FaRegMinusSquare } from "react-icons/fa";
-import { FaGithubSquare } from "react-icons/fa";
+import { useSecondsVoice } from "./hooks/voice";
+import { IoSettingsSharp } from "react-icons/io5";
+import {
+  FaRegWindowClose,
+  FaRegMinusSquare,
+  FaGithubSquare,
+} from "react-icons/fa";
 
 enum TimeKind {
   Hour,
@@ -34,8 +38,6 @@ const TimePointer: React.FC<{ kind: TimeKind }> = ({ kind }) => {
       setHours(localeTime[0]);
       setMinutes(localeTime[1]);
       setSeconds(localeTime[2]);
-      //TODO play voice
-      //https://s1.aigei.com/src/aud/mp3/84/8411ebdff1ab488faf63c2f47f75c612.mp3?e=1714444140&token=P7S2Xpzfz11vAkASLTkfHN7Fw-oOZBecqeJaxypL:vHUDYhBhFb3uUnv_1k5tkDCTSvo=
     }, 1000);
   }, []);
 
@@ -72,9 +74,10 @@ const Toolbars: React.FC<{ enable: boolean }> = ({ enable }) => {
       className="fixed bottom-0 w-full h-12 bg-gray-700 z-50 flex"
       style={{ opacity: enable ? 1 : 0 }}
     >
-      <div className="flex-1 flex justify-start items-center">
+      <div className="flex-1 flex justify-start items-center gap-4">
+        <IoSettingsSharp className="icon ml-2" />
         <a href="https://github.com/zennolux/clock.desktop" target="_blank">
-          <FaGithubSquare className="icon ml-2" />
+          <FaGithubSquare className="icon" />
         </a>
       </div>
       <div className="flex-1 flex items-center justify-end gap-4">
@@ -142,6 +145,17 @@ const MinuteAllocation = () => {
 
 function App() {
   const [showToolbar, setShowToolbar] = useState(false);
+  const [shouldPlayVoice, setShouldPlayVoice] = useState(true);
+  const { play, stop } = useSecondsVoice();
+
+  useEffect(() => {
+    if (!shouldPlayVoice) {
+      stop();
+      return;
+    }
+    play();
+    setShouldPlayVoice(false);
+  }, [shouldPlayVoice]);
 
   return (
     <div
