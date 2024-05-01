@@ -70,7 +70,7 @@ const Toolbars: React.FC<{ enable: boolean }> = ({ enable }) => {
   return (
     <div
       data-tauri-drag-region
-      className="fixed bottom-0 w-full h-12 bg-gray-700 z-50 flex"
+      className="fixed bottom-0 w-full h-12 bg-gray-700 dark:bg-gray-900 z-50 flex"
       style={{ opacity: enable ? 1 : 0 }}
     >
       <div className="flex-1 flex justify-start items-center gap-4">
@@ -154,7 +154,7 @@ function App() {
       data-tauri-drag-region
       className={`h-screen w-screen flex justify-center items-start ${
         darkMode ? "dark" : ""
-      } ${showToolbar ? "bg-gray-300" : ""} `}
+      } ${showToolbar ? "bg-gray-300 dark:bg-gray-700" : ""} `}
       onMouseEnter={() => setShowToolbar(true)}
       onMouseLeave={() => setShowToolbar(false)}
     >
