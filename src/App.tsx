@@ -79,7 +79,11 @@ const Toolbars: React.FC<{ enable: boolean }> = ({ enable }) => {
         <ClockSettings>
           <IoSettingsSharp className="icon ml-2" />
         </ClockSettings>
-        <a href="https://github.com/zennolux/clock.desktop" target="_blank">
+        <a
+          href="https://github.com/zennolux/clock.desktop"
+          target="_blank"
+          title="😊Give me a star"
+        >
           <FaGithubSquare className="icon" />
         </a>
       </div>
