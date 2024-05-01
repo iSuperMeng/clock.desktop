@@ -6,6 +6,8 @@ import {
   FaRegMinusSquare,
   FaGithubSquare,
 } from "react-icons/fa";
+import ClockSettings from "@/components/clock/ClockSettings";
+import { ThemeProvider } from "./components/ThemeProvider";
 
 enum TimeKind {
   Hour,
@@ -74,7 +76,9 @@ const Toolbars: React.FC<{ enable: boolean }> = ({ enable }) => {
       style={{ opacity: enable ? 1 : 0 }}
     >
       <div className="flex-1 flex justify-start items-center gap-4">
-        <IoSettingsSharp className="icon ml-2" />
+        <ClockSettings>
+          <IoSettingsSharp className="icon ml-2" />
+        </ClockSettings>
         <a href="https://github.com/zennolux/clock.desktop" target="_blank">
           <FaGithubSquare className="icon" />
         </a>
@@ -146,38 +150,39 @@ const MinuteAllocation = () => {
 };
 
 function App() {
-  const darkMode = true;
   const [showToolbar, setShowToolbar] = useState(false);
 
   return (
-    <div
-      data-tauri-drag-region
-      className={`h-screen w-screen flex justify-center items-start ${
-        darkMode ? "dark" : ""
-      } ${showToolbar ? "bg-gray-300 dark:bg-gray-700" : ""} `}
-      onMouseEnter={() => setShowToolbar(true)}
-      onMouseLeave={() => setShowToolbar(false)}
-    >
-      <Toolbars enable={showToolbar} />
-      <div className="bg-white dark:bg-gray-900 border-8 border-gray-700 dark:border-gray-900 rounded-[50%] h-80 w-80">
-        <div className="w-full h-full relative">
-          <MinuteAllocation />
-          <div className="w-[90%] h-[90%] bg-white dark:bg-gray-900 rounded-[50%] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
-            <div className="w-full h-full relative rounded-[50%]">
-              <HourAllocation />
+    <ThemeProvider>
+      <div
+        data-tauri-drag-region
+        className={`h-screen w-screen flex justify-center items-start ${
+          showToolbar ? "bg-gray-300 dark:bg-gray-700" : ""
+        } `}
+        onMouseEnter={() => setShowToolbar(true)}
+        onMouseLeave={() => setShowToolbar(false)}
+      >
+        <Toolbars enable={showToolbar} />
+        <div className="bg-white dark:bg-gray-900 border-8 border-gray-700 dark:border-gray-900 rounded-[50%] h-80 w-80">
+          <div className="w-full h-full relative">
+            <MinuteAllocation />
+            <div className="w-[90%] h-[90%] bg-white dark:bg-gray-900 rounded-[50%] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+              <div className="w-full h-full relative rounded-[50%]">
+                <HourAllocation />
+              </div>
             </div>
-          </div>
-          <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-4 h-4 bg-black rounded-[50%]">
-            <div className="relative w-full h-full">
-              <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-3 h-3 bg-red-800 rounded-[50%] z-50"></div>
-              <TimePointer kind={TimeKind.Hour} />
-              <TimePointer kind={TimeKind.Minute} />
-              <TimePointer kind={TimeKind.Second} />
+            <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-4 h-4 bg-black rounded-[50%]">
+              <div className="relative w-full h-full">
+                <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-3 h-3 bg-red-800 rounded-[50%] z-50"></div>
+                <TimePointer kind={TimeKind.Hour} />
+                <TimePointer kind={TimeKind.Minute} />
+                <TimePointer kind={TimeKind.Second} />
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </ThemeProvider>
   );
 }
 
