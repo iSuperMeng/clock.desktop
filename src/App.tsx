@@ -6,7 +6,7 @@ import {
   FaRegMinusSquare,
   FaGithubSquare,
 } from "react-icons/fa";
-import ClockSettings from "@/components/clock/ClockSettings";
+import ClockSettings from "@/components/ClockSettings";
 import { ThemeProvider } from "./components/ThemeProvider";
 
 enum TimeKind {
