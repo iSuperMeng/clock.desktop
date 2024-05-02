@@ -1,6 +1,9 @@
 
-# clock.desktop
-
-> The following picture on the right-top of the desktop shows you what it is and what it looks.
-
-![](https://github.com/zennolux/clock.desktop/assets/147602513/c3e5fde5-7553-47a4-8119-e26cc0f77077)
+```
+                      ___| | ___   ___| | __  __| | ___  ___| | _| |_ ___  _ __  
+                     / __| |/ _ \ / __| |/ / / _` |/ _ \/ __| |/ / __/ _ \| '_ \ 
+                    | (__| | (_) | (__|   < | (_| |  __/\__ \   <| || (_) | |_) |
+                     \___|_|\___/ \___|_|\_(_)__,_|\___||___/_|\_\\__\___/| .__/ 
+                                                                      |_|    
+```
+-- A tauri-based pure, beautiful, and usable desktop clock.
