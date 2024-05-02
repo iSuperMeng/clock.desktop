@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
-import { useTheme } from "../ThemeProvider";
+import { useTheme } from "@/components/ThemeProvider";
 
 const ClockSettings: React.FC<PropsWithChildren> = ({ children }) => {
   const { theme, setTheme } = useTheme();
