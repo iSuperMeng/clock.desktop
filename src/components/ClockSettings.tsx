@@ -1,4 +1,5 @@
 import { PropsWithChildren, useState } from "react";
+import { useTheme } from "@/components/ThemeProvider";
 import {
   Drawer,
   DrawerClose,
@@ -10,7 +11,6 @@ import {
 } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
-import { useTheme } from "@/components/ThemeProvider";
 
 const ClockSettings: React.FC<PropsWithChildren> = ({ children }) => {
   const { theme, setTheme } = useTheme();
@@ -46,22 +46,6 @@ const ClockSettings: React.FC<PropsWithChildren> = ({ children }) => {
                 defaultChecked={theme == "dark"}
                 onCheckedChange={(value) => setDarkMode(value)}
               />
-            </div>
-          </div>
-          <div className="flex-1 flex items-center w-full gap-8">
-            <div className="w-[35%] text-right ">
-              <label>PositionX:</label>
-            </div>
-            <div className="w-auto">
-              <button type="button">darkMode</button>
-            </div>
-          </div>
-          <div className="flex-1 flex items-center w-full gap-8">
-            <div className="w-[35%] text-right ">
-              <label>PositionY:</label>
-            </div>
-            <div className="w-auto">
-              <button type="button">darkMode</button>
             </div>
           </div>
           <div className="flex-1 flex items-center w-full gap-8">
