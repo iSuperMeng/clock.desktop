@@ -15,7 +15,7 @@ import { useTheme } from "@/components/ThemeProvider";
 const ClockSettings: React.FC<PropsWithChildren> = ({ children }) => {
   const { theme, setTheme } = useTheme();
   const [darkMode, setDarkMode] = useState(false);
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   const saveSettings = () => {
     if (darkMode) {
