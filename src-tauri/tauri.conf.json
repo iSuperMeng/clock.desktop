@@ -15,7 +15,9 @@
 			"window": {
 				"startDragging": true,
 				"minimize": true,
-				"close": true
+				"close": true,
+				"setPosition": true,
+				"setFocus": true
 			},
 			"shell": {
 				"all": false,
@@ -27,7 +29,7 @@
 				"title": "clock.desktop",
 				"width": 340,
 				"height": 370,
-				"x": 1150,
+				"x": 600,
 				"y": 0,
 				"resizable": false,
 				"transparent": true,
