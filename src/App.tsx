@@ -75,7 +75,10 @@ const Toolbars: React.FC<{ enable: boolean }> = ({ enable }) => {
       className="fixed bottom-0 w-full h-12 bg-gray-700 dark:bg-gray-900 z-50 flex"
       style={{ opacity: enable ? 1 : 0 }}
     >
-      <div className="flex-1 flex justify-start items-center gap-4">
+      <div
+        data-tauri-drag-region
+        className="flex-1 flex justify-start items-center gap-4"
+      >
         <ClockSettings>
           <IoSettingsSharp className="icon ml-2" />
         </ClockSettings>
@@ -87,7 +90,10 @@ const Toolbars: React.FC<{ enable: boolean }> = ({ enable }) => {
           <FaGithubSquare className="icon" />
         </a>
       </div>
-      <div className="flex-1 flex items-center justify-end gap-4">
+      <div
+        data-tauri-drag-region
+        className="flex-1 flex items-center justify-end gap-4"
+      >
         <FaRegMinusSquare
           className="icon"
           onClick={() => appWindow.minimize()}
@@ -109,6 +115,7 @@ const HourAllocation = () => {
         const rotate = i >= 9 && i <= 12 ? (i - 9) * 30 : 90 + i * 30;
         return (
           <div
+            data-tauri-drag-region
             key={i}
             className="absolute top-[50%] left-[50%] w-full font-mono text-4xl font-bold flex justify-start"
             style={{
@@ -141,6 +148,7 @@ const MinuteAllocation = () => {
         }`;
         return (
           <div
+            data-tauri-drag-region
             key={i}
             className={`absolute h-full w-[2px] top-[50%] left-[50%] ${bg}`}
             style={{
@@ -167,17 +175,32 @@ function App() {
         onMouseLeave={() => setShowToolbar(false)}
       >
         <Toolbars enable={showToolbar} />
-        <div className="bg-white dark:bg-gray-900 border-8 border-gray-700 dark:border-gray-900 rounded-[50%] h-80 w-80">
-          <div className="w-full h-full relative">
+        <div
+          data-tauri-drag-region
+          className="bg-white dark:bg-gray-900 border-8 border-gray-700 dark:border-gray-900 rounded-[50%] h-80 w-80"
+        >
+          <div data-tauri-drag-region className="w-full h-full relative">
             <MinuteAllocation />
-            <div className="w-[90%] h-[90%] bg-white dark:bg-gray-900 rounded-[50%] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
-              <div className="w-full h-full relative rounded-[50%]">
+            <div
+              data-tauri-drag-region
+              className="w-[90%] h-[90%] bg-white dark:bg-gray-900 rounded-[50%] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
+            >
+              <div
+                data-tauri-drag-region
+                className="w-full h-full relative rounded-[50%]"
+              >
                 <HourAllocation />
               </div>
             </div>
-            <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-4 h-4 bg-black rounded-[50%]">
-              <div className="relative w-full h-full">
-                <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-3 h-3 bg-red-800 rounded-[50%] z-50"></div>
+            <div
+              data-tauri-drag-region
+              className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-4 h-4 bg-black rounded-[50%]"
+            >
+              <div data-tauri-drag-region className="relative w-full h-full">
+                <div
+                  data-tauri-drag-region
+                  className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-3 h-3 bg-red-800 rounded-[50%] z-50"
+                ></div>
                 <TimePointer kind={TimeKind.Hour} />
                 <TimePointer kind={TimeKind.Minute} />
                 <TimePointer kind={TimeKind.Second} />
