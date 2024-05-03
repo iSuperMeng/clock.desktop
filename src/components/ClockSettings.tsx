@@ -35,7 +35,7 @@ const ClockSettings: React.FC<PropsWithChildren> = ({ children }) => {
             <span className="text-black dark:text-white">Settings</span>
           </DrawerTitle>
         </DrawerHeader>
-        <div className="w-full h-auto bg-white dark:bg-gray-900 flex flex-col gap-4 dark:text-white py-4">
+        <div className="w-full h-[50%] bg-white dark:bg-gray-900 flex flex-col gap-4 dark:text-white py-4">
           <div className="flex-1 flex items-center w-full gap-8">
             <div className="w-[35%] text-right ">
               <label>DarkMode:</label>
@@ -48,12 +48,13 @@ const ClockSettings: React.FC<PropsWithChildren> = ({ children }) => {
               />
             </div>
           </div>
+          {/* other setting items */}
           <div className="flex-1 flex items-center w-full gap-8">
             <div className="w-[35%] text-right ">
-              <label>Language:</label>
+              <label></label>
             </div>
             <div className="w-auto">
-              <button type="button">darkMode</button>
+              <div></div>
             </div>
           </div>
         </div>
