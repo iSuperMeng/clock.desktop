@@ -29,8 +29,6 @@
 				"title": "clock.desktop",
 				"width": 340,
 				"height": 370,
-				"x": 600,
-				"y": 0,
 				"resizable": false,
 				"transparent": true,
 				"decorations": false,
