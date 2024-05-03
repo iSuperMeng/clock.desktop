@@ -144,7 +144,9 @@ const MinuteAllocation = () => {
     <>
       {minutes.map((i) => {
         const bg = `${
-          i % 5 == 0 ? "bg-black dark:bg-gray-400" : "bg-gray-700"
+          i % 5 == 0
+            ? "bg-black dark:bg-gray-400"
+            : "bg-gray-400 dark:bg-gray-700"
         }`;
         return (
           <div
