@@ -1,10 +1,11 @@
 ># Introduction
 A tauri-based pure, beautiful, and usable desktop clock.
 
-<div align="center" >
-  <img src="https://github.com/zennolux/clock.desktop/assets/147602513/042c51c0-3d8c-4a8a-97e0-521f90753c8f" />
+<div align="center">
+<video width="100%" height="540" controls>
+    <source src="https://github.com/zennolux/clock.desktop/assets/147602513/ef0ef92f-491d-4440-9361-2164262919df" type="video/mp4">
+</video>
 </div>
-
 
 ># Download
 To download, please visit the release page at: [download](https://github.com/zennolux/clock.desktop/releases/tag/v0.1.0)
