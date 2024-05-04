@@ -1,5 +1,5 @@
 ># Introduction
-`clock.desktop` is a pure, beautiful, and usable desktop app build with tauri.
+A tauri-based pure, beautiful, and usable desktop clock.
 
 <div align="center" >
   <img src="https://github.com/zennolux/clock.desktop/assets/147602513/042c51c0-3d8c-4a8a-97e0-521f90753c8f" />
